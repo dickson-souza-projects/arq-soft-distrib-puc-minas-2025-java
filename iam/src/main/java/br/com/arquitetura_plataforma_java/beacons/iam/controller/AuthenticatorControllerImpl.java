@@ -17,8 +17,8 @@ class AuthenticatorControllerImpl implements AuthenticatorController {
     private AuthenticatorService authenticatorService;
 
     @Override
-    @GetMapping(value = "teste")
-    public ResponseEntity<String> teste() {
+    @GetMapping(value = "testeAuthenticator")
+    public ResponseEntity<String> testeAuthenticator() {
         return new ResponseEntity<>(authenticatorService.teste(), HttpStatus.OK);
     }
 }

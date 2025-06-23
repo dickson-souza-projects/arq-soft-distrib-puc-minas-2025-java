@@ -7,6 +7,6 @@ class AuthenticatorServiceImpl implements AuthenticatorService {
 
     @Override
     public String teste() {
-        return "teste de acesso";
+        return "teste de acesso 2";
     }
 }
