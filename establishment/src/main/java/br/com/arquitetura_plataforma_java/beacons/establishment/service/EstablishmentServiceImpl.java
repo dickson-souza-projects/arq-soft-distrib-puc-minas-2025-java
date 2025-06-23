@@ -20,7 +20,7 @@ public class EstablishmentServiceImpl implements EstablishmentService {
 
     @Override
     public String teste() {
-        ResponseEntity<String> response = restTemplate.getForEntity(iamUrl + "/public/teste", String.class);
+        ResponseEntity<String> response = restTemplate.getForEntity(iamUrl + "/public/testeAuthenticator", String.class);
         return "resposta do micro serviço iam: " + response.getBody();
     }
 }
