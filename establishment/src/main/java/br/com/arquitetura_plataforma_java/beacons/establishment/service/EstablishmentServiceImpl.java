@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 @Service
-public class EstablishmentServiceImpl implements EstablishmentService {
+class EstablishmentServiceImpl implements EstablishmentService {
 
     private final RestTemplate restTemplate;
     private final String iamUrl;

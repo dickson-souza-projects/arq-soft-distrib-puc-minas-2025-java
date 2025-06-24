@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(value = "public")
-public class EstablishmentControllerImpl implements EstablishmentController {
+class EstablishmentControllerImpl implements EstablishmentController {
 
     @Autowired
     private EstablishmentService establishmentService;
