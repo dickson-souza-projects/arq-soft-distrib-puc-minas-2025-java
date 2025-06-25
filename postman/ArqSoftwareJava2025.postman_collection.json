@@ -12,12 +12,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8082/public/testeAuthenticator",
-					"protocol": "http",
+					"raw": "{{URL_IAM}}/public/testeAuthenticator",
 					"host": [
-						"localhost"
+						"{{URL_IAM}}"
 					],
-					"port": "8082",
 					"path": [
 						"public",
 						"testeAuthenticator"
@@ -35,12 +33,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8081/public/teste",
-					"protocol": "http",
+					"raw": "{{URL_Establishment}}/public/teste",
 					"host": [
-						"localhost"
+						"{{URL_Establishment}}"
 					],
-					"port": "8081",
 					"path": [
 						"public",
 						"teste"
