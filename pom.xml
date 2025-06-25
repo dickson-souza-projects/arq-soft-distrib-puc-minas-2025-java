@@ -24,6 +24,8 @@
         <spring.boot.maven.plugin>3.5.3</spring.boot.maven.plugin>
         <org.projectlombok.version>1.18.38</org.projectlombok.version>
         <springboot.starter.test.version>3.5.3</springboot.starter.test.version>
+        <sonar.organization>dickson-souza-projects-sonarqube-cloud</sonar.organization>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
     <dependencyManagement>
         <dependencies>
