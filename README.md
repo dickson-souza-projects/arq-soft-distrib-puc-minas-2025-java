@@ -20,3 +20,6 @@ Já os objetivos desse projeto são mais singelos e ligados a aprendizado técni
 3. Provisionar uma instância do Keycloak para autenticação e autorização
 4. Uso de containers Docker para repetibilidade e simulação de um ambiente produtivo similar ao ambiente de desenvolvimento
 
+# Referências
+
+1. [Bluetooth Low Energy](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy)
