@@ -29,6 +29,10 @@ Figura 1: Visão conceitual do sistema de marketing de proximidade
 
 O administrador, nessa representação, tem acesso a painéis onde pode gerenciar campanhas de marketing, inclusive agendando para períodos pré-determinados para aproveitar datas comemorativas ou disparar ofertas relâmpago com condições especiais para os usuários cadastrados. A interação do administrador com o sistema se dá por meio de uma interface web que se comunica com a aplicação.
 
+## Componentes do sistema
+
+![Diagrama C4 do sistema de marketing de proximidade](./arquitetura-container.png)
+
 # Referências
 
 1. [Bluetooth Low Energy](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy)
