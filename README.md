@@ -45,7 +45,10 @@ Os elementos do sistema de gerenciamento são:
 
 ## Aplicativo mobile
 
- **Usuário**: Pessoa que tem o aplicativo de cupons instalado no seu celular.
+- **Usuário**: Pessoa que tem o aplicativo de cupons instalado no seu celular.
+- **Aplicativo Mobile**: Aplicativo Mobile que permite ao usuário receber notificações sobre promoções que está ocorrendo dentro de uma determinada loja.
+- **Firebase Cloud Message**: Sistema da Google para envio de push notification
+
 
 ## Backend
 
