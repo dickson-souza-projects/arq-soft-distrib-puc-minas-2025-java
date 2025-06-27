@@ -52,7 +52,16 @@ Os elementos do sistema de gerenciamento são:
 
 ## Backend
 
-- **IAM DataBase**: Base de dados responsável pelo o armazenamento das informações cadastradas.
+- **IAM Database**: Base de dados responsável pelo armazenamento das informações cadastradas.
+- **IAM**: Microserviço de autenticação/autorização
+- **Establishment API**: Gerenciamento do estabelecimento (CRUD) contendo endereço, horário de funcionamento e administradores.
+- **Establishment Database**: Base de dados responsável pelo armazenamento das informações cadastradas.
+- **Beacons API**: Gerenciamento do Beacons(CRUD) com registro de UUID, Major e Minor de cada beacon e associação a loja.
+- **Beacons Database**: Base de dados responsável pelo armazenamento das informações cadastradas.
+- **Promotion Management API**: Criação e agendamento de promoções para lojas, deve conter as informações básicas, critérios de público-alvo e data de ativação e desativação.
+- **Promotion Database**: Base de dados responsável pelo armazenamento das informações cadastradas.
+- **Promotion Worker**
+- **Promotion Topic**
 
 # Referências
 
