@@ -45,6 +45,8 @@ Os elementos do sistema de gerenciamento são:
 
 ## Aplicativo mobile
 
+ **Usuário**: Pessoa que tem o aplicativo de cupons instalado no seu celular.
+
 ## Backend
 
 # Referências
