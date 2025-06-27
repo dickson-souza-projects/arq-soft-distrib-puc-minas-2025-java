@@ -37,6 +37,11 @@ O administrador, nessa representação, tem acesso a painéis onde pode gerencia
 
 Os elementos do sistema de gerenciamento são:
 - **Tela de login**: Tela na qual o usuário realiza o login para ter autorização a acessar o sistema.
+- **Gerenciamento do estabelecimento**: Gerenciamento do estabelecimento (CRUD) contendo endereço, horário de funcionamento e administradores.
+- **Gerenciamento de Lojas**: Gerenciamento de loja (CRUD), vinculada ao estabelecimento comercial, com dados de contato, setor de atuação e logo.
+- **Gerenciamento do Beacons**: Gerenciamento do Beacons(CRUD) com registro de UUID, Major e Minor de cada beacon e associação a loja.
+- **Criação e agendamento de promoções**: Criação e agendamento de promoções para lojas, deve conter as informações básicas, critérios de público alvo e data de ativação e desativação.
+- **Dashboard e Relatórios**: Relatório de performace de promoções, taxa de abertura de notificações, conversão e exportação desses relatórios.
 
 ## Aplicativo mobile
 
