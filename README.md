@@ -52,6 +52,8 @@ Os elementos do sistema de gerenciamento são:
 
 ## Backend
 
+- **IAM DataBase**: Base de dados responsável pelo o armazenamento das informações cadastradas.
+
 # Referências
 
 1. [Bluetooth Low Energy](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy)
