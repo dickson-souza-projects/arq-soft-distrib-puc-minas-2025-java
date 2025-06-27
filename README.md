@@ -33,6 +33,15 @@ O administrador, nessa representação, tem acesso a painéis onde pode gerencia
 
 ![Diagrama C4 do sistema de marketing de proximidade](./arquitetura-container.png)
 
+## Sistema de gerenciamento
+
+Os elementos do sistema de gerenciamento são:
+- **Tela de login**: Tela na qual o usuário realiza o login para ter autorização a acessar o sistema.
+
+## Aplicativo mobile
+
+## Backend
+
 # Referências
 
 1. [Bluetooth Low Energy](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy)
