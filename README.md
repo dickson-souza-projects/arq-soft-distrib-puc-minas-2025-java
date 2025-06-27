@@ -36,6 +36,7 @@ O administrador, nessa representação, tem acesso a painéis onde pode gerencia
 ## Sistema de gerenciamento
 
 Os elementos do sistema de gerenciamento são:
+
 - **Tela de login**: Tela na qual o usuário realiza o login para ter autorização a acessar o sistema.
 - **Gerenciamento do estabelecimento**: Gerenciamento do estabelecimento (CRUD) contendo endereço, horário de funcionamento e administradores.
 - **Gerenciamento de Lojas**: Gerenciamento de loja (CRUD), vinculada ao estabelecimento comercial, com dados de contato, setor de atuação e logo.
@@ -45,6 +46,8 @@ Os elementos do sistema de gerenciamento são:
 
 ## Aplicativo mobile
 
+os elementos do aplicativo mobile são:
+
 - **Usuário**: Pessoa que tem o aplicativo de cupons instalado no seu celular.
 - **Aplicativo Mobile**: Aplicativo Mobile que permite ao usuário receber notificações sobre promoções que está ocorrendo dentro de uma determinada loja.
 - **Firebase Cloud Message**: Sistema da Google para envio de push notification
@@ -52,16 +55,25 @@ Os elementos do sistema de gerenciamento são:
 
 ## Backend
 
-- **IAM Database**: Base de dados responsável pelo armazenamento das informações cadastradas.
-- **IAM**: Microserviço de autenticação/autorização
-- **Establishment API**: Gerenciamento do estabelecimento (CRUD) contendo endereço, horário de funcionamento e administradores.
-- **Establishment Database**: Base de dados responsável pelo armazenamento das informações cadastradas.
-- **Beacons API**: Gerenciamento do Beacons(CRUD) com registro de UUID, Major e Minor de cada beacon e associação a loja.
-- **Beacons Database**: Base de dados responsável pelo armazenamento das informações cadastradas.
-- **Promotion Management API**: Criação e agendamento de promoções para lojas, deve conter as informações básicas, critérios de público-alvo e data de ativação e desativação.
-- **Promotion Database**: Base de dados responsável pelo armazenamento das informações cadastradas.
-- **Promotion Worker**
-- **Promotion Topic**
+Os elementos do backend são:
+
+- Autenticação e autorização:
+  - **IAM Database**: Base de dados responsável pelo armazenamento das informações cadastradas.
+  - **IAM**: Microserviço de autenticação/autorização
+
+- Estabelecimento comercial:
+  - **Establishment API**: Gerenciamento do estabelecimento (CRUD) contendo endereço, horário de funcionamento e administradores.
+  - **Establishment Database**: Base de dados responsável pelo armazenamento das informações cadastradas.
+
+- Beacons:
+  - **Beacons API**: Gerenciamento do Beacons(CRUD) com registro de UUID, Major e Minor de cada beacon e associação a loja.
+  - **Beacons Database**: Base de dados responsável pelo armazenamento das informações cadastradas.
+
+- Promoções e campanhas comerciais:
+  - **Promotion Management API**: Criação e agendamento de promoções para lojas, deve conter as informações básicas, critérios de público-alvo e data de ativação e desativação.
+  - **Promotion Database**: Base de dados responsável pelo armazenamento das informações cadastradas.
+  - **Promotion Worker**
+  - **Promotion Topic**
 
 # Referências
 
