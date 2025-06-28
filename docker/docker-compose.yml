@@ -1,4 +1,33 @@
 services:
+
+  keycloak-db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: keycloak
+      POSTGRES_PASSWORD: keycloak
+    networks:
+      - keycloak-net
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:24.0.1
+    command: start-dev
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://keycloak-db:5432/keycloak
+      KC_HOSTNAME: localhost
+      KC_DB_USERNAME: keycloak
+      KC_DB_PASSWORD: keycloak
+      KC_PROXY: edge
+    ports:
+      - "8080:8080"
+    depends_on:
+      - keycloak-db
+    networks:
+      - keycloak-net
+
   nginx:
     image: nginx:latest
     ports:
@@ -6,15 +35,25 @@ services:
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
     depends_on:
+      - keycloak
       - establishment
       - iam
+    networks:
+      - keycloak-net
 
   establishment:
     build: ../establishment
     ports:
       - "8081:8080"
+    networks:
+      - keycloak-net
 
   iam:
     build: ../iam
     ports:
       - "8082:8080"
+    networks:
+      - keycloak-net
+
+networks:
+  keycloak-net:
