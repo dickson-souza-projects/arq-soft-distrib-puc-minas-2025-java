@@ -104,16 +104,14 @@ Para a execução desse projeto, embora detalhes possam variar conforme o sistem
 Para provisionar um container contendo o PostgreSQL, use o comando abaixo se estiver no WSL ou em um máquina Linux:
 
 ```shell
-sudo docker run --name my-postgre -e "POSTGRES_PASSWORD={insira sua senha aqui}" -p 5432:5432 -d postgres:17.4
+sudo docker run --name my-postgre -e "POSTGRES_PASSWORD={insira sua senha aqui}" -e "POSTGRES_USER=postgres" -p 5432:5432 -d postgres:17.4
 ```
 
 ou no PowerShell no Windows: 
 
 ```PowerShell
-docker run --name my-postgre -e "POSTGRES_PASSWORD={insira sua senha aqui}" -p 5432:5432 -d postgres:17.4
+docker run --name my-postgre -e "POSTGRES_PASSWORD={insira sua senha aqui}" -e "POSTGRES_USER=postgres" -p 5432:5432 -d postgres:17.4
 ```
-
-Note que o usuário padrão associado a essa senha é `postgres`.
 
 para inspecionar o IP para conexão posterior ao banco de dados use o comando abaixo:
 
@@ -161,7 +159,7 @@ sudo docker run --name my-pg-admin -e "PGADMIN_DEFAULT_EMAIL={insira seu e-mail 
 ```
 
 ```PowerShell
-docker run --name my-pg-admin -e "PGADMIN_DEFAULT_EMAIL={insira seu e-mail aqui}" -e "PGADMIN_DEFAULT_PASSWORD={insira sua senha aqui}" -p 7000:80 -d dpage/pgadmin4:9.1.0
+docker run --name my-pg-admin -e "PGADMIN_DEFAULT_EMAIL={insira seu e-mail aqui}" -e "PGADMIN_DEFAULT_PASSWORD={insira sua senha aqui}" -p 7000:80 -d dpage/pgadmin4:9.4.0
 ```
 
 # Referências
