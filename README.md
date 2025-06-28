@@ -97,6 +97,73 @@ Para a execução desse projeto, embora detalhes possam variar conforme o sistem
 8. [SonarSource](https://www.sonarsource.com/)
 9. [Jenkins](https://www.jenkins.io/)
 
+## Comandos úteis
+
+### PostgreSQL
+
+Para provisionar um container contendo o PostgreSQL, use o comando abaixo se estiver no WSL ou em um máquina Linux:
+
+```shell
+sudo docker run --name my-postgre -e "POSTGRES_PASSWORD={insira sua senha aqui}" -p 5432:5432 -d postgres:17.4
+```
+
+ou no PowerShell no Windows: 
+
+```PowerShell
+docker run --name my-postgre -e "POSTGRES_PASSWORD={insira sua senha aqui}" -p 5432:5432 -d postgres:17.4
+```
+
+Note que o usuário padrão associado a essa senha é `postgres`.
+
+para inspecionar o IP para conexão posterior ao banco de dados use o comando abaixo:
+
+```shell
+docker inspect my-postgre
+```
+
+```json
+[
+    {
+        "Id": "{redacted}",
+        "Created": "{redacted}",
+        "Path": "docker-entrypoint.sh",
+        ...
+        "Image": "{redacted}",
+        ...        
+        "NetworkSettings": {
+                ...
+            },
+            ...
+            "LinkLocalIPv6Address": "{redacted}",
+            "LinkLocalIPv6PrefixLen": 0,
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "{redacted}",
+            "Gateway": "{redacted}",
+            "GlobalIPv6Address": "{redacted}",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "{redacted}", <<< Informação necessária para conexão com o banco de dados
+            "IPPrefixLen": 16,
+            "IPv6Gateway": "{redacted}",
+            "MacAddress": "{redacted}",
+            ...
+        }
+    }
+]
+```
+
+### pgAdmin
+
+Para provisionar um container contendo o pgAdmin, use o comando abaixo se estiver no WSL ou em um máquina Linux:
+
+```shell
+sudo docker run --name my-pg-admin -e "PGADMIN_DEFAULT_EMAIL={insira seu e-mail aqui}" -e "PGADMIN_DEFAULT_PASSWORD={insira sua senha aqui}" -p 7000:80 -d dpage/pgadmin4:9.1.0
+```
+
+```PowerShell
+docker run --name my-pg-admin -e "PGADMIN_DEFAULT_EMAIL={insira seu e-mail aqui}" -e "PGADMIN_DEFAULT_PASSWORD={insira sua senha aqui}" -p 7000:80 -d dpage/pgadmin4:9.1.0
+```
+
 # Referências
 
 1. [Bluetooth Low Energy](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy)
