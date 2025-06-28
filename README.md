@@ -46,7 +46,7 @@ Os elementos do sistema de gerenciamento são:
 
 ## Aplicativo mobile
 
-os elementos do aplicativo mobile são:
+Os elementos do aplicativo mobile são:
 
 - **Usuário**: Pessoa que tem o aplicativo de cupons instalado no seu celular.
 - **Aplicativo Mobile**: Aplicativo Mobile que permite ao usuário receber notificações sobre promoções que está ocorrendo dentro de uma determinada loja.
@@ -75,6 +75,29 @@ Os elementos do backend são:
   - **Promotion Worker**
   - **Promotion Topic**
 
+# Como executar esse projeto
+
+## Requisitos mínimos
+
+Para a execução desse projeto, embora detalhes possam variar conforme o sistema operacional do desenvolvedor, os seguintes requisitos mínimos são necessários:
+
+1. git para o controle de versão e interação com o serviço de hospedagem remoto GitHub
+   1. [git for Windows](https://git-scm.com/downloads/win)
+   2. [git for Linux](https://git-scm.com/downloads/linux)
+   3. [git for macOS](https://git-scm.com/downloads/mac)
+2. [IntelliJ Idea Ultimate (gratuito para estudantes)](https://www.jetbrains.com/academy/student-pack/)
+3. [Docker](https://dev.to/bowmanjd/install-docker-on-windows-wsl-without-docker-desktop-34m9) ou [Docker Desktop](https://docs.docker.com/desktop/setup/install/windows-install/)
+4. Algum JDK com suporte ao Java 21 ([Resposta detalhada às questões de licenciamento do JDK](https://stackoverflow.com/questions/58250782/which-free-version-of-java-can-i-use-for-production-environments-and-or-commerci/58260110#58260110))
+   1. [OpenJDK](https://openjdk.org/projects/jdk/21/)
+   2. [Amazon Corretto 21](https://docs.aws.amazon.com/corretto/latest/corretto-21-ug/downloads-list.html)
+   3. [IBM Semeru Runtimes](https://developer.ibm.com/languages/java/semeru-runtimes/downloads/?license=IBM) / [Introducing the no-cost IBM Semeru Runtimes to develop and run Java applications](https://developer.ibm.com/blogs/introducing-the-ibm-semeru-runtimes/)
+5. [Keycloak](https://www.keycloak.org/)
+6. [PostgreSQL](https://www.postgresql.org/)
+7. [pgAdmin](https://www.pgadmin.org/)
+8. [SonarSource](https://www.sonarsource.com/)
+9. [Jenkins](https://www.jenkins.io/)
+
 # Referências
 
 1. [Bluetooth Low Energy](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy)
+2. [Install Docker on Windows (WSL) without Docker Desktop](https://dev.to/bowmanjd/install-docker-on-windows-wsl-without-docker-desktop-34m9)
