@@ -1,6 +1,7 @@
 package br.com.arquitetura_plataforma_java.beacons.iam.service;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -27,10 +28,15 @@ class AuthenticatorServiceImpl implements AuthenticatorService {
     @Value("${keycloak.grant.type}")
     private String grantType;
 
-    private final RestTemplate restTemplate = new RestTemplate();
+    private final RestTemplate restTemplate;
+
+    @Autowired
+    public AuthenticatorServiceImpl(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
+    }
 
     @Override
-    public String teste() {
+    public String getToken() {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
 
@@ -43,6 +49,6 @@ class AuthenticatorServiceImpl implements AuthenticatorService {
 
         ResponseEntity<Map> response = restTemplate.postForEntity(tokenUrl, entity, Map.class);
 
-        return (String) response.getBody().toString();
+        return (String) response.getBody().get("access_token");
     }
 }
