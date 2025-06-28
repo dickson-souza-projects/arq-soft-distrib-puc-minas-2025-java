@@ -186,7 +186,20 @@ Para provisionar um container contendo o Jenkins, use o comando abaixo:
 docker run --name my-jenkins -p 7003:8080 -p 7004:50000 -d jenkins/jenkins:lts-jdk17 
 ```
 
+## Execução local (sem uso direto do Docker compose)
 
+Para execução local, usando o IntelliJ Idea Ultimate, siga as instruções da documentação disponíveis em [Run Applications](https://www.jetbrains.com/help/idea/running-applications.html). Pode ser útil também ler a documentação sobre a execução de tarefas compostas (relevante no contexto desse projeto configurado como um monorepo com diversos microserviços): [Run compound tasks](https://www.jetbrains.com/help/idea/run-debug-multiple.html).
+
+Para suporte à essa configuração localize os arquivos na pasta .run:
+
+```
+├───.run
+│       ConfigLocal.run.xml
+│       EstablishmentApplication.run.xml
+│       IamApplication.run.xml
+```
+
+O arquivo `ConfigLocal.run.xml` coordena a execução das tarefas individuais (`EstablishmentApplication.run.xml` e `IamApplication.run.xml`)
 
 # Referências
 
