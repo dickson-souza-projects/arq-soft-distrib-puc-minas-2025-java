@@ -99,6 +99,10 @@ Para a execução desse projeto, embora detalhes possam variar conforme o sistem
 
 ## Comandos úteis
 
+Nos comandos abaixo para provisionar um container Docker, observa-se regularmente a sintaxe `PORT_HOST:PORT_CONTAINER`. Essa sintaxe indica que a porta `PORT_CONTAINER` do container está exposta e está conectada à porta `PORT_HOST` do host que hospeda o container.
+
+[Sintaxe de configuração das portas expostas de um container Docker](https://docs.docker.com/reference/cli/docker/container/run/#publish)
+
 ### PostgreSQL
 
 Para provisionar um container contendo o PostgreSQL, use o comando abaixo se estiver no WSL ou em um máquina Linux:
@@ -167,7 +171,7 @@ docker run --name my-pg-admin -e "PGADMIN_DEFAULT_EMAIL={insira seu e-mail aqui}
 Para provisionar um container contendo o Keycloak, use o comando abaixo:
 
 ```PowerShell
-docker run --name my-keycloak -p 7001:8080 -e "kc_bootstrap_admin_username=admin" -e "KC_BOOTSTRAP_ADMIN_PASSWORD={insira sua senha aqui}" -d quay.io/keycloak/keycloak:26.1.4 start-dev --features authorization,organization
+docker run --name my-keycloak -p 8080:8080 -e "kc_bootstrap_admin_username=admin" -e "KC_BOOTSTRAP_ADMIN_PASSWORD={insira sua senha aqui}" -d quay.io/keycloak/keycloak:26.1.4 start-dev --features authorization,organization
 ```
 
 ### SonarQube:
