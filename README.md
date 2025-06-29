@@ -75,6 +75,23 @@ Os elementos do backend são:
   - **Promotion Worker**
   - **Promotion Topic**
 
+# Gerenciamento de segredos no Spring Boot
+
+Referência inicial:
+[Spring Boot Secret Properties: How to store secrets in your Configuration Properties](https://www.youtube.com/watch?v=PmGLn3ua_lU)
+[Repositório para o tutorial acima do Dan Vega](https://github.com/danvega/spring-boot-secrets)
+
+Dependência a usar:
+
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-configuration-processor</artifactId>
+    <optional>true</optional>
+</dependency>
+```
+
+
 # Como executar esse projeto
 
 ## Requisitos mínimos
@@ -111,7 +128,7 @@ Para provisionar um container contendo o PostgreSQL, use o comando abaixo se est
 sudo docker run --name my-postgre -e "POSTGRES_PASSWORD={insira sua senha aqui}" -e "POSTGRES_USER=postgres" -p 5432:5432 -d postgres:17.4
 ```
 
-ou no PowerShell no Windows: 
+ou no PowerShell no Windows:
 
 ```PowerShell
 docker run --name my-postgre -e "POSTGRES_PASSWORD={insira sua senha aqui}" -e "POSTGRES_USER=postgres" -p 5432:5432 -d postgres:17.4
@@ -131,7 +148,7 @@ docker inspect my-postgre
         "Path": "docker-entrypoint.sh",
         ...
         "Image": "{redacted}",
-        ...        
+        ...
         "NetworkSettings": {
                 ...
             },
@@ -187,7 +204,7 @@ docker run -d --name my-sonarqube -p 7002:9000 -d sonarqube:lts-community
 Para provisionar um container contendo o Jenkins, use o comando abaixo:
 
 ```PowerShell
-docker run --name my-jenkins -p 7003:8080 -p 7004:50000 -d jenkins/jenkins:lts-jdk17 
+docker run --name my-jenkins -p 7003:8080 -p 7004:50000 -d jenkins/jenkins:lts-jdk17
 ```
 
 ## Execução local (sem uso direto do Docker compose)
