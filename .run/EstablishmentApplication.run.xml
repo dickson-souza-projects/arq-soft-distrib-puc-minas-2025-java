@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="EstablishmentApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+    <module name="establishment" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="br.com.arquitetura_plataforma_java.beacons.establishment.EstablishmentApplication" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
