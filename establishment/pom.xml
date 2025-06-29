@@ -28,11 +28,6 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>br.com.arquitetura-plataforma-java.beacons</groupId>
-            <artifactId>iam</artifactId>
-            <scope>compile</scope>
-        </dependency>
     </dependencies>
     <build>
         <plugins>

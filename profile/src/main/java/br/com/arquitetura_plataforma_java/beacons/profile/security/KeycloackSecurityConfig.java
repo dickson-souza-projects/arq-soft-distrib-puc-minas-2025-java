@@ -21,7 +21,7 @@ public class KeycloackSecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests()
                 .requestMatchers("/public/**").permitAll()
-                .anyRequest().permitAll();
+                .anyRequest().authenticated();
 
         http.oauth2ResourceServer()
                 .jwt()
