@@ -1,4 +1,44 @@
 services:
+
+  keycloak-db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: keycloak
+      POSTGRES_PASSWORD: keycloak
+    networks:
+      - keycloak-net
+
+  profile-db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: profile-db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Senha12#
+    networks:
+      - keycloak-net
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:24.0.1
+    command: start-dev --import-realm
+    environment:
+      KC_DB: postgres
+      KC_DB_URL_HOST: keycloak-db
+      KC_DB_URL_DATABASE: keycloak
+      KC_DB_USERNAME: keycloak
+      KC_DB_PASSWORD: keycloak
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+    volumes:
+      - ./keycloak/realm-config:/opt/keycloak/data/import
+    ports:
+      - "8080:8080"
+    depends_on:
+      - keycloak-db
+    restart: unless-stopped
+    networks:
+      - keycloak-net
+
   nginx:
     image: nginx:latest
     ports:
@@ -8,13 +48,30 @@ services:
     depends_on:
       - establishment
       - iam
+      - profile
+    networks:
+      - keycloak-net
 
   establishment:
     build: ../establishment
     ports:
       - "8081:8080"
+    networks:
+      - keycloak-net
 
   iam:
     build: ../iam
     ports:
       - "8082:8080"
+    networks:
+      - keycloak-net
+
+  profile:
+    build: ../profile
+    ports:
+      - "8083:8080"
+    networks:
+      - keycloak-net
+
+networks:
+  keycloak-net:

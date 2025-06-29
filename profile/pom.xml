@@ -8,17 +8,14 @@
         <version>1.0.0</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-    <groupId>br.com.arquitetura-plataforma-java.beacons</groupId>
-    <artifactId>iam</artifactId>
-    <packaging>jar</packaging>
+    <groupId>br.com.arquitetura_plataforma_java.beacons</groupId>
+    <artifactId>profile</artifactId>
     <version>1.0.0</version>
-    <name>iam</name>
-    <description>Microserviço responsável por autentiticação e autorização</description>
-    <url/>
+    <name>profile</name>
+    <description>profile</description>
     <properties>
         <java.version>21</java.version>
     </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -32,7 +29,6 @@
         <dependency>
             <groupId>org.keycloak</groupId>
             <artifactId>keycloak-spring-boot-starter</artifactId>
-            <version>25.0.3</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security -->
         <dependency>
@@ -51,11 +47,35 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- MapStruct em tempo de compilação -->
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+        </dependency>
+
+        <!-- Processador de anotações do MapStruct -->
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct-processor</artifactId>
             <scope>provided</scope>
-            <optional>true</optional>
         </dependency>
     </dependencies>
 
