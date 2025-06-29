@@ -24,14 +24,14 @@ Já os objetivos desse projeto são mais singelos e ligados a aprendizado técni
 
 A Figura 1 apresenta a visão do geral do sistema. Nessa imagem beacon é um dispositivo montado em uma loja ou balção de corredor de um shopping ou galeria comercial, ou mesmo em uma loja de frente de rua. O usuário representado deve ter o aplicativo de cupons instalados em seu celular ou dispositivo móvel (smart watch ou tables) e registrado no estabelecimento que tem o beacon instalado fisicamente. Quando o beacon detecta a proximidade do dispositivo cadastrado, verifica as campanhas de marketing disponíveis e envia uma notificação para o dispositivo do usuário por meio do sistema, usando o protocolo HTTP. O papel do beacon nesse sistema é identificar qual dispositivo está nas proximidades para então disparar o processo de envio da campanha.
 
-![Contexto da arquitetura](./arquitetura-contexto.png)
+![Contexto da arquitetura](./docs/arquitetura-contexto.png)
 Figura 1: Visão conceitual do sistema de marketing de proximidade
 
 O administrador, nessa representação, tem acesso a painéis onde pode gerenciar campanhas de marketing, inclusive agendando para períodos pré-determinados para aproveitar datas comemorativas ou disparar ofertas relâmpago com condições especiais para os usuários cadastrados. A interação do administrador com o sistema se dá por meio de uma interface web que se comunica com a aplicação.
 
 ## Componentes do sistema
 
-![Diagrama C4 do sistema de marketing de proximidade](./arquitetura-container.png)
+![Diagrama C4 do sistema de marketing de proximidade](./docs/arquitetura-container.png)
 
 ## Sistema de gerenciamento
 
@@ -99,6 +99,10 @@ Para a execução desse projeto, embora detalhes possam variar conforme o sistem
 
 ## Comandos úteis
 
+Nos comandos abaixo para provisionar um container Docker, observa-se regularmente a sintaxe `PORT_HOST:PORT_CONTAINER`. Essa sintaxe indica que a porta `PORT_CONTAINER` do container está exposta e está conectada à porta `PORT_HOST` do host que hospeda o container.
+
+[Sintaxe de configuração das portas expostas de um container Docker](https://docs.docker.com/reference/cli/docker/container/run/#publish)
+
 ### PostgreSQL
 
 Para provisionar um container contendo o PostgreSQL, use o comando abaixo se estiver no WSL ou em um máquina Linux:
@@ -162,15 +166,15 @@ sudo docker run --name my-pg-admin -e "PGADMIN_DEFAULT_EMAIL={insira seu e-mail 
 docker run --name my-pg-admin -e "PGADMIN_DEFAULT_EMAIL={insira seu e-mail aqui}" -e "PGADMIN_DEFAULT_PASSWORD={insira sua senha aqui}" -p 7000:80 -d dpage/pgadmin4:9.4.0
 ```
 
-## Keycloak
+### Keycloak
 
 Para provisionar um container contendo o Keycloak, use o comando abaixo:
 
 ```PowerShell
-docker run --name my-keycloak -p 7001:8080 -e "kc_bootstrap_admin_username=admin" -e "KC_BOOTSTRAP_ADMIN_PASSWORD={insira sua senha aqui}" -d quay.io/keycloak/keycloak:26.1.4 start-dev --features authorization,organization
+docker run --name my-keycloak -p 8080:8080 -e "kc_bootstrap_admin_username=admin" -e "KC_BOOTSTRAP_ADMIN_PASSWORD={insira sua senha aqui}" -d quay.io/keycloak/keycloak:26.1.4 start-dev --features authorization,organization
 ```
 
-## SonarQube:
+### SonarQube:
 
 Para provisionar um container contendo o SonarQube, use o comando abaixo:
 
@@ -178,13 +182,28 @@ Para provisionar um container contendo o SonarQube, use o comando abaixo:
 docker run -d --name my-sonarqube -p 7002:9000 -d sonarqube:lts-community
 ```
 
-## Jenkins
+### Jenkins
 
 Para provisionar um container contendo o Jenkins, use o comando abaixo:
 
 ```PowerShell
 docker run --name my-jenkins -p 7003:8080 -p 7004:50000 -d jenkins/jenkins:lts-jdk17 
 ```
+
+## Execução local (sem uso direto do Docker compose)
+
+Para execução local, usando o IntelliJ Idea Ultimate, siga as instruções da documentação disponíveis em [Run Applications](https://www.jetbrains.com/help/idea/running-applications.html). Pode ser útil também ler a documentação sobre a execução de tarefas compostas (relevante no contexto desse projeto configurado como um monorepo com diversos microserviços): [Run compound tasks](https://www.jetbrains.com/help/idea/run-debug-multiple.html).
+
+Para suporte à essa configuração localize os arquivos na pasta .run:
+
+```
+├───.run
+│       ConfigLocal.run.xml
+│       EstablishmentApplication.run.xml
+│       IamApplication.run.xml
+```
+
+O arquivo `ConfigLocal.run.xml` coordena a execução das tarefas individuais (`EstablishmentApplication.run.xml` e `IamApplication.run.xml`)
 
 # Referências
 
