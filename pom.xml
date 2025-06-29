@@ -15,6 +15,7 @@
     <modules>
         <module>iam</module>
         <module>establishment</module>
+        <module>profile</module>
     </modules>
 
     <properties>
