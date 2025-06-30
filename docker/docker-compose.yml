@@ -19,7 +19,7 @@ services:
       - keycloak-net
 
   keycloak:
-    image: quay.io/keycloak/keycloak:24.0.1
+    image: quay.io/keycloak/keycloak:26.1.4
     command: start-dev --import-realm
     environment:
       KC_DB: postgres
