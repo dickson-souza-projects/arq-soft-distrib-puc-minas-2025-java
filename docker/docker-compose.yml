@@ -1,7 +1,7 @@
 services:
 
   keycloak-db:
-    image: postgres:15
+    image: postgres:17.4
     environment:
       POSTGRES_DB: keycloak
       POSTGRES_USER: keycloak
@@ -10,7 +10,7 @@ services:
       - keycloak-net
 
   profile-db:
-    image: postgres:15
+    image: postgres:17.4
     environment:
       POSTGRES_DB: profile-db
       POSTGRES_USER: postgres
