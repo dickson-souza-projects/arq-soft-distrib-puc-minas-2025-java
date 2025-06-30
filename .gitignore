@@ -176,30 +176,20 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
-### VS Code ###
-
-.vscode/
-
 ### Some additional ignores (sort later)
-*.DS_Store
-*.sw?
 .#*
+.exercism
+.gradle
+*.DS_Store
+*.sublime-*
+*.sw?
 *#
 *~
-.classpath
-.project
-.settings
+/scratch
 bin
 build
-target
-dependency-reduced-pom.xml
-*.sublime-*
-/scratch
-.gradle
 README.html
-*.iml
-.idea
-.exercism
+target
 
 dummy.html
 docker/provision-docker-images-for-local-testing.sh
