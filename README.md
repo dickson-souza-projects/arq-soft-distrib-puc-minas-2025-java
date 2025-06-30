@@ -230,7 +230,7 @@ O fluxo ideal deve considerar copiar a última versão do Gist, inserir as crede
 Para executar, abra um terminal `bash` na raiz do repositório e digite o seguinte comando:
 
 ```bash
-bash provision-docker-images-for-local-testing.sh
+bash docker/provision-docker-images-for-local-testing.sh
 ```
 
 Usuários Windows podem usar o Git Bash que tem praticamente as mesmas funcionalidades do GNU Bash disponível nos sistemas baseados em Unix.
