@@ -28,14 +28,14 @@ public class ProfileControllerImpl implements ProfileController {
     private static final Logger Logger = LoggerFactory.getLogger(ProfileControllerImpl.class);
 
     @Override
-    @PreAuthorize("hasAnyRole({'user'})")
+    @PreAuthorize("hasAnyRole({'access_profile'})")
     @GetMapping(value = "allUser")
     public ResponseEntity<List<ProfileEntity>> getAllUser() {
         return ResponseEntity.ok(profileService.getAllUser());
     }
 
     @Override
-    @PreAuthorize("hasAnyRole('user')")
+    @PreAuthorize("hasAnyRole('access_profile')")
     @PostMapping(value = "user")
     public ResponseEntity<String> saveUser(@RequestBody ProfileDTO profile) {
         Logger.info("Recebido {}", profile);
