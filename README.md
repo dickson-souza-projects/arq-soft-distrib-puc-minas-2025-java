@@ -111,7 +111,7 @@ Para provisionar um container contendo o PostgreSQL, use o comando abaixo se est
 sudo docker run --name my-postgre -e "POSTGRES_PASSWORD={insira sua senha aqui}" -e "POSTGRES_USER=postgres" -p 5432:5432 -d postgres:17.4
 ```
 
-ou no PowerShell no Windows: 
+ou no PowerShell no Windows:
 
 ```PowerShell
 docker run --name my-postgre -e "POSTGRES_PASSWORD={insira sua senha aqui}" -e "POSTGRES_USER=postgres" -p 5432:5432 -d postgres:17.4
@@ -131,7 +131,7 @@ docker inspect my-postgre
         "Path": "docker-entrypoint.sh",
         ...
         "Image": "{redacted}",
-        ...        
+        ...
         "NetworkSettings": {
                 ...
             },
@@ -187,7 +187,7 @@ docker run -d --name my-sonarqube -p 7002:9000 -d sonarqube:lts-community
 Para provisionar um container contendo o Jenkins, use o comando abaixo:
 
 ```PowerShell
-docker run --name my-jenkins -p 7003:8080 -p 7004:50000 -d jenkins/jenkins:lts-jdk17 
+docker run --name my-jenkins -p 7003:8080 -p 7004:50000 -d jenkins/jenkins:lts-jdk17
 ```
 
 ## Execução local (sem uso direto do Docker compose)
@@ -204,6 +204,36 @@ Para suporte à essa configuração localize os arquivos na pasta .run:
 ```
 
 O arquivo `ConfigLocal.run.xml` coordena a execução das tarefas individuais (`EstablishmentApplication.run.xml` e `IamApplication.run.xml`)
+
+### Dependências
+
+Mesmo quando rodando em ambiente local, as dependências (PostgreSQL para cada serviço, servidor do Keycloac e outros) devem ser provisionados - ou localmente ou via um container Docker devidamente configurado.
+
+Para facilitar esse processo de execução de vários scripts manuais, um script foi construído e está disponível em [provision-docker-images-for-local-testing.sh](https://gist.github.com/disouzam/21787e36d08c66051db7b39005e970a7).
+
+Note que esse arquivo pode estar presente no repositório na pasta docker mas está configurado para não ser versionado para evitar a exposição de informações sensíveis no repositório, como senhas, nomes de usuários e portas configuradas para os containeres.
+
+O fluxo ideal deve considerar copiar a última versão do Gist, inserir as credenciais e deixar o arquivo salvo na pasta docker com o nome `provision-docker-images-for-local-testing.sh`
+
+```
+├───docker
+│   docker-compose.yml
+│   nginx.conf
+│   provision-docker-images-for-local-testing.sh <<< Arquivo com comandos para provisionar ou
+|                                                    reiniciar containeres usados como dependências dos projetos
+│
+└───keycloak
+    └───realm-config
+            beacons-realm.json
+```
+
+Para executar, abra um terminal `bash` na raiz do repositório e digite o seguinte comando:
+
+```bash
+bash provision-docker-images-for-local-testing.sh
+```
+
+Usuários Windows podem usar o Git Bash que tem praticamente as mesmas funcionalidades do GNU Bash disponível nos sistemas baseados em Unix.
 
 # Referências
 
