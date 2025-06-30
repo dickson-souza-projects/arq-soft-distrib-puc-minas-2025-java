@@ -177,6 +177,7 @@ build/
 !**/src/test/**/build/
 
 ### VS Code ###
+
 .vscode/
 
 ### Some additional ignores (sort later)
@@ -199,3 +200,6 @@ README.html
 *.iml
 .idea
 .exercism
+
+dummy.html
+docker/provision-docker-images-for-local-testing.sh
