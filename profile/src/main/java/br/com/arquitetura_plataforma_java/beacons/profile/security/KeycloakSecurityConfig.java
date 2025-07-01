@@ -1,5 +1,6 @@
 package br.com.arquitetura_plataforma_java.beacons.profile.security;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.convert.converter.Converter;
@@ -12,15 +13,16 @@ import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationConverter;
 import org.springframework.security.web.SecurityFilterChain;
 
+@RequiredArgsConstructor
 @Configuration
 @EnableWebSecurity
-@EnableMethodSecurity
+@EnableMethodSecurity(prePostEnabled = true)
 public class KeycloakSecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        //http.csrf(csrf -> csrf.disable())
         http.authorizeHttpRequests()
-                .requestMatchers("/public/**").permitAll()
                 .anyRequest().authenticated();
 
         http.oauth2ResourceServer()

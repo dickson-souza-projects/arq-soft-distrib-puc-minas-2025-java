@@ -1,14 +1,18 @@
 package br.com.arquitetura_plataforma_java.beacons.profile.service;
 
-import br.com.arquitetura_plataforma_java.beacons.profile.entity.ProfileEntity;
+import br.com.arquitetura_plataforma_java.beacons.profile.DTO.ProfileDTO;
 
 import java.util.List;
 
 
 public interface ProfileService {
 
-    List<ProfileEntity> getAllUser();
+    List<ProfileDTO> getAllUser();
 
-    void save(ProfileEntity profileEntity);
+    ProfileDTO getUserById(int id);
+
+    void save(ProfileDTO profileDTO);
+
+    void delete(int id);
 
 }

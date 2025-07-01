@@ -23,8 +23,8 @@ public class KeycloakSecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         //http.csrf(csrf -> csrf.disable())
         http.authorizeHttpRequests()
-                .requestMatchers("/public/**").permitAll()
-                .anyRequest().permitAll();
+                .requestMatchers("/public/token").permitAll()
+                .anyRequest().authenticated();
 
         http.oauth2ResourceServer()
                 .jwt()
