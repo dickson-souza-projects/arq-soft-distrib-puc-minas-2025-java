@@ -18,7 +18,7 @@ import java.util.Optional;
 
 
 @RestController
-@RequestMapping(value = "public")
+@RequestMapping(value = "api")
 public class ProfileControllerImpl implements ProfileController {
     @Autowired
     private ProfileService profileService;
@@ -26,14 +26,14 @@ public class ProfileControllerImpl implements ProfileController {
     private static final Logger Logger = LoggerFactory.getLogger(ProfileControllerImpl.class);
 
     @Override
-    @PreAuthorize("hasAnyRole({'admin'})")
+    @PreAuthorize("hasAnyRole('access_profile')")
     @GetMapping(value = "allUser")
     public ResponseEntity<List<ProfileDTO>> getAllUser() {
         return ResponseEntity.ok(profileService.getAllUser());
     }
 
     @Override
-    @PreAuthorize("hasAnyRole({'access_profile'})")
+    @PreAuthorize("hasAnyRole('access_profile')")
     @GetMapping(value = "user/{id}")
     public ResponseEntity<ProfileDTO> getUserById(@PathVariable("id") int id) {
         return ResponseEntity.ok(profileService.getUserById(id));
@@ -43,6 +43,7 @@ public class ProfileControllerImpl implements ProfileController {
     @PreAuthorize("hasAnyRole('access_profile')")
     @PostMapping(value = "user")
     public ResponseEntity<String> saveUser(@RequestBody ProfileDTO profile) {
+        Logger.info("Recebido {}", profile);
         if (profile.getNome() == null) {
             return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body("O Nome não podem ser nulos");
         } else {
@@ -55,6 +56,7 @@ public class ProfileControllerImpl implements ProfileController {
     @PreAuthorize("hasAnyRole('access_profile')")
     @PatchMapping(value = "user")
     public ResponseEntity<String> updateUser(@RequestBody ProfileDTO profile) {
+        Logger.info("Recebido {}", profile);
         if (profile.getNome() == null) {
             return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body("O Nome não podem ser nulos");
         } else {
@@ -66,7 +68,7 @@ public class ProfileControllerImpl implements ProfileController {
     @Override
     @PreAuthorize("hasAnyRole('admin')")
     @DeleteMapping(value = "user/{id}")
-    public ResponseEntity<String> deleteUser(@PathVariable int id) {
+    public ResponseEntity<String> deleteUser(@PathVariable("id") int id) {
         if (id <= 0) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("O Id precisa ser informado");
         }

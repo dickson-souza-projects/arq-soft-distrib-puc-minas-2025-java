@@ -9,5 +9,4 @@ import org.mapstruct.factory.Mappers;
 public interface ProfileMapper {
     ProfileEntity toEntity(ProfileDTO dto);
     ProfileDTO toDTO(ProfileEntity entity);
-
 }
