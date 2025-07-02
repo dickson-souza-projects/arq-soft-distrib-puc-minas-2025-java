@@ -1,7 +1,7 @@
 package br.com.arquitetura_plataforma_java.beacons.beaconsservice.service;
 
 
-import br.com.arquitetura_plataforma_java.beacons.beaconsservice.DTO.BeaconsDTO;
+import DTO.BeaconsDTO;
 
 import java.util.List;
 

@@ -17,6 +17,8 @@
         <module>establishment</module>
         <module>profile</module>
         <module>beacons-service</module>
+        <module>promotion</module>
+        <module>commons</module>
     </modules>
 
     <properties>
@@ -32,6 +34,12 @@
     </properties>
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>br.com.arquitetura-plataforma-java</groupId>
+                <artifactId>commons</artifactId>
+                <version>1.0.0</version>
+            </dependency>
+
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-web</artifactId>

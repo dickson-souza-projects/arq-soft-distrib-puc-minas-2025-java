@@ -1,6 +1,6 @@
 package br.com.arquitetura_plataforma_java.beacons.beaconsservice.mapper;
 
-import br.com.arquitetura_plataforma_java.beacons.beaconsservice.DTO.BeaconsDTO;
+import DTO.BeaconsDTO;
 import br.com.arquitetura_plataforma_java.beacons.beaconsservice.entity.BeaconsEntity;
 import org.mapstruct.Mapper;
 

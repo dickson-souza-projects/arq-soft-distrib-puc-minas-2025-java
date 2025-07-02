@@ -1,6 +1,7 @@
 package br.com.arquitetura_plataforma_java.beacons.establishment.controller;
 
-import br.com.arquitetura_plataforma_java.beacons.establishment.DTO.EstablishmentDTO;
+
+import DTO.EstablishmentDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

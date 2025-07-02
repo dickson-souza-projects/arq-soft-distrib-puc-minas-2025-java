@@ -1,6 +1,6 @@
 package br.com.arquitetura_plataforma_java.beacons.establishment.mapper;
 
-import br.com.arquitetura_plataforma_java.beacons.establishment.DTO.EstablishmentDTO;
+import DTO.EstablishmentDTO;
 import br.com.arquitetura_plataforma_java.beacons.establishment.entity.EstablishmentEntity;
 import org.mapstruct.Mapper;
 

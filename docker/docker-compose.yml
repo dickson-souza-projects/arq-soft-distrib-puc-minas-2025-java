@@ -36,6 +36,15 @@ services:
     networks:
       - keycloak-net
 
+  promotion-db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: promotion-db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Senha12#
+    networks:
+      - keycloak-net
+
   keycloak:
     image: quay.io/keycloak/keycloak:24.0.1
     command: start-dev --import-realm
@@ -96,6 +105,15 @@ services:
     build: ../beacons-service
     ports:
       - "8084:8080"
+    depends_on:
+      - beacons-db
+    networks:
+      - keycloak-net
+
+  promotion:
+    build: ../promotion
+    ports:
+      - "8085:8080"
     networks:
       - keycloak-net
 

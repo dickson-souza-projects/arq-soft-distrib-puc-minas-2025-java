@@ -1,6 +1,7 @@
 package br.com.arquitetura_plataforma_java.beacons.iam.controller;
 
 
+import DTO.TokenDTO;
 import br.com.arquitetura_plataforma_java.beacons.iam.service.AuthenticatorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,7 +19,7 @@ class AuthenticatorControllerImpl implements AuthenticatorController {
 
     @Override
     @GetMapping(value = "token")
-    public ResponseEntity<String> getToken() {
+    public ResponseEntity<TokenDTO> getToken() {
         return new ResponseEntity<>(authenticatorService.getToken(), HttpStatus.OK);
     }
 }

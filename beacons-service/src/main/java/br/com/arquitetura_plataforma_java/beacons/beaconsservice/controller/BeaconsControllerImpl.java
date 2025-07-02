@@ -1,16 +1,20 @@
 package br.com.arquitetura_plataforma_java.beacons.beaconsservice.controller;
 
-import br.com.arquitetura_plataforma_java.beacons.beaconsservice.DTO.BeaconsDTO;
+import DTO.BeaconsDTO;
 import br.com.arquitetura_plataforma_java.beacons.beaconsservice.service.BeaconsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.*;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
+import java.util.Map;
 
 
 @RestController
@@ -18,6 +22,14 @@ import java.util.List;
 public class BeaconsControllerImpl implements BeaconsController {
     @Autowired
     private BeaconsService beaconsService;
+
+    private final RestTemplate restTemplate;
+    @Autowired
+    public BeaconsControllerImpl(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
+    }
+    @Value("${iam.url}")
+    private String tokenUrl;
 
     private static final Logger Logger = LoggerFactory.getLogger(BeaconsController.class);
 
@@ -67,5 +79,11 @@ public class BeaconsControllerImpl implements BeaconsController {
     public ResponseEntity<String> deleteBeacon(@RequestBody BeaconsDTO beacon) {
         beaconsService.delete(beacon);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Beacon deletado com sucesso");
+    }
+
+    private String getToken() {
+        ResponseEntity<String> response = restTemplate.getForEntity("http://iam:8082/public/token", String.class);
+        Logger.info(response.getBody());
+        return response.getBody();
     }
 }

@@ -1,6 +1,7 @@
 package br.com.arquitetura_plataforma_java.beacons.iam.service;
 
 
+import DTO.TokenDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
@@ -36,7 +37,7 @@ class AuthenticatorServiceImpl implements AuthenticatorService {
     }
 
     @Override
-    public String getToken() {
+    public TokenDTO getToken() {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
 
@@ -47,8 +48,8 @@ class AuthenticatorServiceImpl implements AuthenticatorService {
 
         HttpEntity<MultiValueMap<String, String>> entity = new HttpEntity<>(form, headers);
 
-        ResponseEntity<Map> response = restTemplate.postForEntity(tokenUrl, entity, Map.class);
+        ResponseEntity<TokenDTO> response = restTemplate.postForEntity(tokenUrl, entity, TokenDTO.class);
 
-        return (String) response.getBody().get("access_token");
+        return response.getBody();
     }
 }

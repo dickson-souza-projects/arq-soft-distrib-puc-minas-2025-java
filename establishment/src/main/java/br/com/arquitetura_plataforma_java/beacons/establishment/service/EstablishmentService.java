@@ -1,6 +1,6 @@
 package br.com.arquitetura_plataforma_java.beacons.establishment.service;
 
-import br.com.arquitetura_plataforma_java.beacons.establishment.DTO.EstablishmentDTO;
+import DTO.EstablishmentDTO;
 
 import java.util.List;
 

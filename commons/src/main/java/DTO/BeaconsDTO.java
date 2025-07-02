@@ -1,4 +1,5 @@
-package br.com.arquitetura_plataforma_java.beacons.establishment.DTO;
+package DTO;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,8 +8,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class EstablishmentDTO {
-    private Integer id;
+public class BeaconsDTO {
+    private String uuid;
     private String nome;
-    private String endereco;
 }
+
