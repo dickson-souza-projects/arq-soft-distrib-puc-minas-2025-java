@@ -18,6 +18,15 @@ services:
     networks:
       - keycloak-net
 
+  establishment-db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: establishment-db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Senha12#
+    networks:
+      - keycloak-net
+
   keycloak:
     image: quay.io/keycloak/keycloak:24.0.1
     command: start-dev --import-realm
