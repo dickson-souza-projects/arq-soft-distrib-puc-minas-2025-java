@@ -18,6 +18,15 @@ services:
     networks:
       - keycloak-net
 
+  establishment-db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: establishment-db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Senha12#
+    networks:
+      - keycloak-net
+
   beacons-db:
     image: postgres:15
     environment:
