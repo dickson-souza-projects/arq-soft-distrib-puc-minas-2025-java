@@ -16,6 +16,7 @@
         <module>iam</module>
         <module>establishment</module>
         <module>profile</module>
+        <module>beacons-service</module>
     </modules>
 
     <properties>
