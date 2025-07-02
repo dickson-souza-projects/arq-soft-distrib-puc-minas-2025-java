@@ -22,14 +22,17 @@ public class KeycloakSecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         //http.csrf(csrf -> csrf.disable())
-        http.authorizeHttpRequests()
-                .anyRequest().authenticated();
-
-        http.oauth2ResourceServer()
-                .jwt()
-                .jwtAuthenticationConverter(this.jwtAuthenticationConverter());
-
-        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+        http.authorizeHttpRequests((authorize) -> authorize
+                        .anyRequest().authenticated()
+                )
+                .oauth2ResourceServer(oauth2 -> oauth2
+                        .jwt(jwt -> jwt
+                                .jwtAuthenticationConverter(this.jwtAuthenticationConverter())
+                        )
+                )
+                .sessionManagement(session -> session
+                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                );
         return http.build();
     }
 

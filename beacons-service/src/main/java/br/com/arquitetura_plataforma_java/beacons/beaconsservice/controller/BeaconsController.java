@@ -17,6 +17,6 @@ interface BeaconsController {
     ResponseEntity<BeaconsDTO> getBeaconByUUID(@PathVariable String UUID);
     ResponseEntity<String> saveBeacon(@RequestBody BeaconsDTO profile) ;
     ResponseEntity<String> updateBeacon(@RequestBody BeaconsDTO profile);
-    ResponseEntity<String> deleteBeacon(@PathVariable String id);
+    ResponseEntity<String> deleteBeacon(@RequestBody BeaconsDTO beacon);
 
 }

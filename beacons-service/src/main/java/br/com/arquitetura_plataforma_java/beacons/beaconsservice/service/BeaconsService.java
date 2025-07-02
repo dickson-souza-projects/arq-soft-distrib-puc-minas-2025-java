@@ -10,6 +10,6 @@ public interface BeaconsService {
     List<BeaconsDTO> getAllUser();
     BeaconsDTO getBeaconByUUID(String uuid);
     void save(BeaconsDTO profileDTO);
-    void delete(String id);
+    void delete(BeaconsDTO profileDTO);
 
 }

@@ -36,7 +36,7 @@ public class BeaconsServiceImpl implements BeaconsService {
     }
 
     @Override
-    public void delete(String uuid) {
-
+    public void delete(BeaconsDTO profileDTO) {
+        repository.delete(beaconsMapper.toEntity(profileDTO));
     }
 }

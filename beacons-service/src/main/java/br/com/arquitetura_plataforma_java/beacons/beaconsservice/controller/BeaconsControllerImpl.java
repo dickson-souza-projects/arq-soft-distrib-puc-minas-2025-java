@@ -63,9 +63,9 @@ public class BeaconsControllerImpl implements BeaconsController {
 
     @Override
     @PreAuthorize("hasAnyRole('admin')")
-    @DeleteMapping(value = "beacon/{uuid}")
-    public ResponseEntity<String> deleteBeacon(@PathVariable("uuid") String uuid) {
-        beaconsService.delete(uuid);
+    @DeleteMapping(value = "beacon")
+    public ResponseEntity<String> deleteBeacon(@RequestBody BeaconsDTO beacon) {
+        beaconsService.delete(beacon);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Beacon deletado com sucesso");
     }
 }
