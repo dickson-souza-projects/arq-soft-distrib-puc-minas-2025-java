@@ -7,13 +7,7 @@
       "secret": "W2ymtcbQuYaEQyofhNU1Ck49bBvPlp54",
       "serviceAccountsEnabled": true,
       "publicClient": false,
-      "directAccessGrantsEnabled": false,
-      "protocol": "openid-connect"
-    },
-    {
-      "clientId": "profile-service",
-      "publicClient": true,
-      "directAccessGrantsEnabled": false,
+      "directAccessGrantsEnabled": true,
       "protocol": "openid-connect"
     }
   ],
@@ -21,6 +15,9 @@
     "realm": [
       {
         "name": "access_profile"
+      },
+      {
+        "name": "admin"
       }
     ]
   },
